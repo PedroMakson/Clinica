@@ -67,6 +67,18 @@
 <h4>[RNF003] - Linguagem Java</h4>
 <p align="justify">- O sistema deve ser implementado em linguagem Java.</p>
 
+<p align="right">
+   Documentação dos <a href="https://docs.google.com/document/d/1LuUPISf02Jz1BWatXY0dPWpjax62CK_r2kCl8-Ks2nA/edit?usp=sharing" target="_blank">Requisitos</a>
+</p>
+
+## 📊 Diagramas
+<h3 align="justify">📑 Diagrama de Classes</h3>
+
+![Diagrama de Classe](https://github.com/PedroMakson/Clinica/blob/main/Diagramas/Diagrama%20de%20Classe.jpg?raw=true)
+<p align="right">
+   Figura 01: <a href="https://drive.google.com/file/d/1knjeE-tAWnVb2sQfxavC_-nNRNZfMtOv/view?usp=sharing" target="_blank">Diagrama de Classes</a>
+</p>
+
 ## 👨‍🎓 Discentes
 * [Arthur Kellyson Pinheiro de Negreiros](https://github.com/Arthurkellysonp)</br>
 * [Luis Davi da Silva Sarmento](https://github.com/lluisdavi)</br>
@@ -87,7 +99,7 @@
 * [Meet](https://meet.google.com/)
 	 * Chamada via meet (Compartilhamento de tela ao vivo e reuniões);
 * [Documentos Google](https://docs.google.com/document/d/1LuUPISf02Jz1BWatXY0dPWpjax62CK_r2kCl8-Ks2nA/edit?usp=sharing)
-    * Processador de texto on-line, redireciona ao documento oficial do projeto;
+    * Processador de texto on-line;
 ##
 
 <p align="right">
