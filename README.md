@@ -1,7 +1,7 @@
 <h1 align="center">Sistema de Gerenciamento de Consultas para Clínicas👨🏼‍⚕️</h1>
 
 ## ❓ Sobre o projeto
-   <p align="justify">Em um cenário dinâmico e desafiador no setor de saúde, onde a eficiência no agendamento e gerenciamento de consultas desempenha um papel crucial para assegurar um atendimento de qualidade aos pacientes, apresentamos o projeto de desenvolvimento de um "Sistema de Gerenciamento de Agendamentos para Clínicas".
+   <p align="justify">Em um cenário dinâmico e desafiador no setor de saúde, onde a eficiência no agendamento e gerenciamento de consultas desempenha um papel crucial para assegurar um atendimento de qualidade aos pacientes, apresentamos o projeto de desenvolvimento de um "Sistema de Gerenciamento de Agendamentos para Clínicas" como parte avaliativa da disciplina "Teste de Software".
 </p>
    <p align="justify">Reconhecendo a importância de integrar tecnologia moderna às necessidades práticas das clínicas, nosso objetivo é oferecer uma solução abrangente que traga benefícios tanto para os pacientes quanto para os profissionais de saúde. Dessa forma, o sistema será desenvolvido na linguagem Java, seguindo uma abordagem orientada a objetos e adotando o modelo MVC (Model-View-Controller). Essas escolhas tecnológicas visam garantir robustez, flexibilidade e fácil manutenção. O sistema busca otimizar o agendamento, melhorar a eficácia operacional das clínicas e proporcionar uma experiência aprimorada aos pacientes, adaptando-se às demandas dinâmicas do ambiente clínico.
 </p> 
