@@ -74,9 +74,9 @@
 ## 📊 Diagramas
 <h3 align="justify">📑 Diagrama de Classes</h3>
 
-![Diagrama de Classe](https://github.com/PedroMakson/Clinica/blob/main/Diagramas/Diagrama%20de%20Classe.png?raw=true)
+![Diagrama de Classe](https://github.com/PedroMakson/Clinica/blob/main/Diagramas/DiagramaDeClasse.png?raw=true)
 <p align="right">
-   Figura 01: <a href="https://drive.google.com/file/d/1knjeE-tAWnVb2sQfxavC_-nNRNZfMtOv/view?usp=sharing" target="_blank">Diagrama de Classes</a>
+   Figura 01: <a href="https://drive.google.com/file/d/1rQWGY-u24EdTtthOCRRWNBHo2Ge2iUAb/view?usp=drive_link" target="_blank">Diagrama de Classes</a>
 </p>
 
 ## 👨‍🎓 Discentes
