@@ -1,0 +1,88 @@
+CREATE TABLE Paciente (
+  cpf CHAR(11) PRIMARY KEY,
+  nome VARCHAR(60) NOT NULL,
+  dataNascimento DATE NOT NULL,
+  sexo VARCHAR(20) NOT NULL,
+  peso FLOAT NOT NULL,
+  altura FLOAT NOT NULL,
+  tipoSanguineo VARCHAR(3) NOT NULL, 
+  telefone CHAR(11) NOT NULL,
+  email VARCHAR(60) UNIQUE NOT NULL,
+  senha VARCHAR(30) NOT NULL,
+  cep CHAR(9) NOT NULL,
+  rua VARCHAR(50) NOT NULL,
+  numeroDaCasa INT NOT NULL,
+  bairro VARCHAR(40) NOT NULL,
+  cidade VARCHAR(40) NOT NULL,
+  uf CHAR(2) NOT NULL
+);
+
+CREATE TABLE Funcionario (
+  cpf CHAR(11) PRIMARY KEY,
+  nome VARCHAR(60) NOT NULL,
+  dataNascimento DATE NOT NULL,
+  sexo VARCHAR(20) NOT NULL,
+  cargo VARCHAR(40) NOT NULL,
+  salario NUMERIC(10, 2) NOT NULL,
+  dataContratacao DATE NOT NULL,
+  status BOOLEAN NOT NULL,
+  telefone CHAR(11) NOT NULL,
+  email VARCHAR(60) UNIQUE NOT NULL,
+  senha VARCHAR(30) NOT NULL,
+  cep CHAR(9) NOT NULL,
+  rua VARCHAR(50) NOT NULL,
+  numeroDaCasa INT NOT NULL,
+  bairro VARCHAR(40) NOT NULL,
+  cidade VARCHAR(40) NOT NULL,
+  uf CHAR(2)NOT NULL
+);
+
+CREATE TABLE PrescricaoMedica (
+  numeroPrescricao SERIAL PRIMARY KEY NOT NULL, 
+  paciente_cpf CHAR(11) NOT NULL,
+  funcionario_cpf CHAR(11) NOT NULL,
+  dataPrescricao DATE NOT NULL,
+  diagnostico VARCHAR(50) NOT NULL,
+  descricao VARCHAR(100) NOT NULL,
+  FOREIGN KEY (paciente_cpf) REFERENCES Paciente,
+  FOREIGN KEY (funcionario_cpf) REFERENCES Funcionario 
+);
+
+CREATE TABLE Servicos (
+  codigoServico SERIAL PRIMARY KEY NOT NULL,
+  nome VARCHAR(40) NOT NULL,
+  valor NUMERIC(10, 2) NOT NULL,
+  status BOOLEAN NOT NULL
+)
+
+CREATE TABLE Consulta (
+  consulta_id SERIAL PRIMARY KEY NOT NULL,
+  funcionario_cpf CHAR(11) NOT NULL,
+  funcionario_nome VARCHAR(60) NOT NULL,
+  paciente_cpf CHAR(11) NOT NULL,
+  paciente_nome VARCHAR(60) NOT NULL,
+  codigoServico INT NOT NULL,
+  nomeServico VARCHAR(40) NOT NULL,
+  valorServico NUMERIC(10, 2) NOT NULL,
+  dataConsulta DATE NOT NULL,
+  horario TIME NOT NULL,
+  statusConsulta VARCHAR(15) NOT NULL,
+  statusPagamento BOOLEAN NOT NULL,
+  FOREIGN KEY (funcionario_cpf) REFERENCES Funcionario,
+  FOREIGN KEY (paciente_cpf) REFERENCES Paciente,
+  FOREIGN KEY (codigoServico) REFERENCES Servicos
+);
+
+CREATE TABLE ProntuarioMedico (
+  id_prontuario SERIAL PRIMARY KEY,
+  funcionario_cpf CHAR(11) NOT NULL,
+  funcionario_nome VARCHAR(60) NOT NULL,
+  paciente_cpf CHAR(11) NOT NULL,
+  paciente_nome VARCHAR(60) NOT NULL,
+  tipoRegistro VARCHAR(20) NOT NULL,
+  diagnostico_servico VARCHAR(50) NOT NULL,
+  descricao VARCHAR(100) NOT NULL,
+  dataRegistro DATE NOT NULL,
+  FOREIGN KEY (paciente_cpf) REFERENCES Paciente,
+  FOREIGN KEY (funcionario_cpf) REFERENCES Funcionario
+);

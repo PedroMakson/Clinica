@@ -50,7 +50,10 @@
 <h4>[RF013] - Visualização de prontuário</h4>
     <p align="justify">- O sistema deve manter um registro eletrônico das consultas, tratamentos/serviços realizados, prescrições e exames, garantindo a fácil recuperação das informações dos pacientes. Os dados serão exibidos a partir do período informado pelo usuário.</p>
 
-<h4>[RF014] - Sistema de logout</h4>
+<h4>[RF014] - Relatório financeiro</h4>
+    <p align="justify">- O sistema deve manter e gerar um histórico financeiro detalhado, incluindo pagamentos e valores pendentes. Os dados serão exibidos a partir do período informado.</p>
+
+<h4>[RF015] - Sistema de logout</h4>
     <p align="justify">- O sistema deve permitir que o usuário deslogue da aplicação, deixando de ter acesso às suas funcionalidade.<p>
 	    
 ##
@@ -68,16 +71,23 @@
 ## 📊 Diagramas
 <h3 align="justify">📑 Diagrama de Classes</h3>
 
-![Diagrama de Classe](https://github.com/PedroMakson/Clinica/blob/main/Diagramas/DiagramaDeClasse.png?raw=true)
+![Diagrama de Classe](https://github.com/PedroMakson/Clinica/blob/main/Documentação/DiagramaDeClasse.png?raw=true)
 <p align="right">
-   Figura 01: <a href="https://drive.google.com/file/d/1rQWGY-u24EdTtthOCRRWNBHo2Ge2iUAb/view?usp=drive_link" target="_blank">Diagrama de Classes</a>
+   Figura 01: <a href="https://drive.google.com/file/d/1x8H1gcf-GEMyoTFhgmE-vI1N0JeSXd1B/view?usp=sharing" target="_blank">Diagrama de Classes</a>
 </p>
 
 <h3 align="justify">📑 Diagrama de Caso e Uso</h3>
 
-![Diagrama de Caso e Uso](https://github.com/PedroMakson/Clinica/blob/main/Diagramas/DiagramaDeCasoUso.png?raw=true)
+![Diagrama de Caso e Uso](https://github.com/PedroMakson/Clinica/blob/main/Documentação/DiagramaDeCasoUso.png?raw=true)
 <p align="right">
-   Figura 02: <a href="https://drive.google.com/file/d/1cR7sRKb6Sjzvg2Z7CNCpYo9I7moMEokn/view?usp=drive_link" target="_blank">Diagrama de Caso e Uso</a>
+   Figura 02: <a href="https://drive.google.com/file/d/1FykVgxCilGyu5kubJY6_6gxj855HcAyt/view?usp=drive_link" target="_blank">Diagrama de Caso e Uso</a>
+</p>
+
+<h3 align="justify">📑 Diagrama de Entidade-Relacionamento</h3>
+
+![Diagrama Entidade-Relacionamentos](https://github.com/PedroMakson/Clinica/blob/main/Documentação/DiagramaEntidade&Relacionamento.png?raw=true)
+<p align="right">
+   Figura 03: <a href="https://drive.google.com/file/d/1LXd7QXPPxQRkeyZxXNm2oMRM_1VZAPcG/view?usp=drive_link" target="_blank">Diagrama Entidade-Relacionamento</a>
 </p>
 
 ## 💻 Atividades de Teste
