@@ -87,7 +87,7 @@
 
 ![Diagrama Entidade-Relacionamentos](https://github.com/PedroMakson/Clinica/blob/main/Documentação/DiagramaEntidade&Relacionamento.png?raw=true)
 <p align="right">
-   Figura 03: <a href="https://drive.google.com/file/d/1LXd7QXPPxQRkeyZxXNm2oMRM_1VZAPcG/view?usp=drive_link" target="_blank">Diagrama Entidade-Relacionamento</a>
+   Figura 03: <a href="https://drive.google.com/file/d/1LXd7QXPPxQRkeyZxXNm2oMRM_1VZAPcG/view?usp=drive_link" target="_blank">Modelo Lógico</a>
 </p>
 
 ## 💻 Atividades de Teste
@@ -101,7 +101,7 @@
 |                                         |                                      |                                         |                                        |
 |-----------------------------------------|--------------------------------------|-----------------------------------------|----------------------------------------|
 | [RF001] - Sistema de login                | [RF004] - Cadastro de pacientes        | [RF007] - Editar cadastro de serviços     | [RF012] - Prescrições médicas            |
-| [RF002] - Cadastro de funcionários        | [RF005] - Editar cadastro de paciente  | [RF008] - Agendamento de consultas        | [RF013] - Visualização de prontuário     |
+| [RF002] - Cadastro de funcionários        | [RF005] - Editar cadastro de paciente  | [RF008] - Agendamento de consultas        |
 | [RF003] - Editar cadastro de funcionários | [RF006] - Cadastro de serviços         | [RF009] - Editar consultas                |
 
 <h4 align="justify">Análise de Valor Limite</h4>
