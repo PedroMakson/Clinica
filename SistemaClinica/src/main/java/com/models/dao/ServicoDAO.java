@@ -221,4 +221,90 @@ public class ServicoDAO {
         }
         return valorServico;
     }
+
+    public boolean deletarServico(Servico servico) {
+        String sql = "DELETE FROM Servicos WHERE nome = ?";
+
+        try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
+            // Define o valor do ID do serviço a ser excluído no comando SQL
+            stmt.setString(1, servico.getNome());
+
+            // Executa o comando SQL
+            int linhasAfetadas = stmt.executeUpdate();
+
+            // Verifica se o serviço foi excluído com sucesso
+            return linhasAfetadas > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false; // Retorna false em caso de exceção
+        }
+    }
+
+    public int retornarCodigoServicoPeloNome(String nomeServico) throws SQLException {
+        String sql = "SELECT codigoservico FROM Servicos WHERE nome = ?";
+        int codigo = -1; // Valor padrão para caso o serviço não seja encontrado
+
+        try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
+            stmt.setString(1, nomeServico);
+
+            try (ResultSet resultSet = stmt.executeQuery()) {
+                if (resultSet.next()) {
+                    codigo = resultSet.getInt("codigoservico");
+                }
+            }
+        }
+        return codigo;
+    }
+
+    public boolean atualizarAtributoServicoPeloNome(String nome, int opcao, String novoValor) throws SQLException {
+        String sql = "";
+
+        switch (opcao) {
+            case 1:
+                sql = "UPDATE Servicos SET nome = ? WHERE nome = ?";
+                break;
+            case 2:
+                sql = "UPDATE Servicos SET valor = ? WHERE nome = ?";
+                break;
+            case 3:
+                sql = "UPDATE Servicos SET status = ? WHERE nome = ?";
+                break;
+            default:
+                return false; // Retorna false se a opção não for válida
+        }
+
+        try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
+            // Define o valor apropriado no PreparedStatement com base no tipo de atributo
+            if (opcao == 1) {
+                stmt.setString(1, novoValor);
+            } else if (opcao == 2) {
+                // Converter a string em um double
+                double valor;
+                try {
+                    valor = Double.parseDouble(novoValor);
+                } catch (NumberFormatException e) {
+                    e.printStackTrace();
+                    return false; // Retorna false em caso de erro na conversão
+                }
+                stmt.setDouble(1, valor);
+            } else if (opcao == 3) {
+                // Converter a string em um booleano
+                boolean status;
+                if (novoValor.equalsIgnoreCase("ativo")) {
+                    status = true;
+                } else if (novoValor.equalsIgnoreCase("inativo")) {
+                    status = false;
+                } else {
+                    return false; // Retorna false se o valor não for "ativo" ou "inativo"
+                }
+                stmt.setBoolean(1, status);
+            }
+
+            stmt.setString(2, nome);
+
+            int linhasAfetadas = stmt.executeUpdate();
+            return linhasAfetadas > 0;
+        }
+    }
+
 }

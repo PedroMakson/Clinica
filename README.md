@@ -83,7 +83,7 @@
    Figura 02: <a href="https://drive.google.com/file/d/1FykVgxCilGyu5kubJY6_6gxj855HcAyt/view?usp=drive_link" target="_blank">Diagrama de Caso e Uso</a>
 </p>
 
-<h3 align="justify">📑 Diagrama de Entidade-Relacionamento</h3>
+<h3 align="justify">📑 Banco de Dados: Modelo Lógico</h3>
 
 ![Diagrama Entidade-Relacionamentos](https://github.com/PedroMakson/Clinica/blob/main/Documentação/DiagramaEntidade&Relacionamento.png?raw=true)
 <p align="right">
@@ -100,9 +100,9 @@
 
 |                                         |                                      |                                         |                                        |
 |-----------------------------------------|--------------------------------------|-----------------------------------------|----------------------------------------|
-| RF001 - Sistema de login                | RF004 - Cadastro de pacientes        | RF007 - Editar cadastro de serviços     | RF012 - Prescrições médicas            |
-| RF002 - Cadastro de funcionários        | RF005 - Editar cadastro de paciente  | RF008 - Agendamento de consultas        | RF013 - Visualização de prontuário     |
-| RF003 - Editar cadastro de funcionários | RF006 - Cadastro de serviços         | RF009 - Editar consultas                | RF014 - Sistema de logout              |
+| [RF001] - Sistema de login                | [RF004] - Cadastro de pacientes        | [RF007] - Editar cadastro de serviços     | [RF012] - Prescrições médicas            |
+| [RF002] - Cadastro de funcionários        | [RF005] - Editar cadastro de paciente  | [RF008] - Agendamento de consultas        | [RF013] - Visualização de prontuário     |
+| [RF003] - Editar cadastro de funcionários | [RF006] - Cadastro de serviços         | [RF009] - Editar consultas                |
 
 <h4 align="justify">Análise de Valor Limite</h4>
 <p align="justify">Trata-se de uma técnica utilizada para identificar e testar os pontos extremos ou limites de entrada e saída de um sistema de software, seu objetivo é garantir que o software funcione corretamente em situações de extremos, onde erros são mais propensos a ocorrer. Serão testadas nas seguintes funcionalidades:
@@ -111,7 +111,7 @@
 |                                           |                                       |                                        |                                       |
 |-------------------------------------------|---------------------------------------|----------------------------------------|---------------------------------------|
 | [RF001] - Sistema de login                | [RF004] - Cadastro de pacientes       | [RF007] - Editar cadastro de serviços  | [RF012] - Prescrições médicas         |
-| [RF002] - Cadastro de funcionários        | [RF005] - Editar cadastro de paciente | [RF008] - Agendamento de consultas     | [RF013] - Visualização de prontuário  |
+| [RF002] - Cadastro de funcionários        | [RF005] - Editar cadastro de paciente | [RF008] - Agendamento de consultas     | 
 | [RF003] - Editar cadastro de funcionários | [RF006] - Cadastro de serviços        | [RF009] - Editar consultas             |                                       |
 
 <h3 align="justify">⬜ Testes Estruturais</h3>

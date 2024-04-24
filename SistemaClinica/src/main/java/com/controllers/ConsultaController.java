@@ -239,7 +239,9 @@ public class ConsultaController {
         // Insere o funcionário no banco de dados
         if (consultaDAO.inserirConsulta(funcionario, paciente, servico, consulta)) {
             App.limparTela();
-            prescricaoMedicaDAO.inserirProntuarioMedico(funcionario.getCpf(), funcionario.getNome(), paciente.getCpf(), paciente.getNome(), "Consulta Médica", consulta.getServico().getNome(), "Realização de: " + consulta.getServico().getNome(), (java.sql.Date) consulta.getData());
+            prescricaoMedicaDAO.inserirProntuarioMedico(funcionario.getCpf(), funcionario.getNome(), paciente.getCpf(),
+                    paciente.getNome(), "Consulta Médica", consulta.getServico().getNome(),
+                    "Realização de: " + consulta.getServico().getNome(), (java.sql.Date) consulta.getData());
             System.out.println("\n > Consulta agendada COM SUCESSO! <\n");
         } else {
             System.out.println("\n > Consulta agendada SEM SUCESSO! <\n");
@@ -333,38 +335,38 @@ public class ConsultaController {
         int contador = 1;
         LocalDate novaDataConsulta = null;
         String novoValor = "";
-    
+
         do {
             System.out.println(" Tentativa " + contador + "/3.");
             System.out.println("+----------------------------------------------+");
             System.out.println("|   A T U A L I Z A R  I N F O R M A Ç Õ E S   |");
             System.out.println("+----------------------------------------------+");
             System.out.printf("| ID da consulta: ");
-        
+
             // Verifica se a entrada é um número inteiro
             if (scanner.hasNextInt()) {
                 idConsulta = scanner.nextInt();
                 scanner.nextLine(); // Consumir a quebra de linha
-        
+
                 if (!consultaDAO.verificarConsultaPeloId(idConsulta)) {
                     App.limparTela();
                     System.out.println("\n > Consulta inexistente no banco de dados. <\n");
                     contador++;
                 }
-        
+
                 if (contador == 3) {
                     break;
                 }
             } else {
-                // Se a entrada não for um número inteiro, limpa o buffer do scanner e mostra uma mensagem de erro
+                // Se a entrada não for um número inteiro, limpa o buffer do scanner e mostra
+                // uma mensagem de erro
                 scanner.nextLine(); // Limpar o buffer do scanner
                 App.limparTela();
                 System.out.println("\n > Por favor, digite apenas números inteiros! <\n");
             }
-        
+
         } while (!consultaDAO.verificarConsultaPeloId(idConsulta));
-        
-    
+
         if (contador != 3) {
             do {
                 App.limparTela();
@@ -378,9 +380,9 @@ public class ConsultaController {
                 System.out.println("|  5 - Status do Pagamento                     |");
                 System.out.println("|  0 - Sair                                    |");
                 System.out.println("+----------------------------------------------+");
-    
+
                 System.out.printf("| > Escolha o dado: ");
-    
+
                 // Verifica se a entrada é um número
                 if (scanner.hasNextInt()) {
                     opcao = scanner.nextInt();
@@ -398,13 +400,13 @@ public class ConsultaController {
                     System.out.println("\n > Por favor, digite apenas números! <\n");
                     continue; // Reinicie o loop para solicitar uma nova entrada
                 }
-    
+
                 // Caso o usuário escolha sair, encerre o método
                 if (opcao == 0) {
                     App.limparTela();
                     return;
                 }
-    
+
                 App.limparTela();
                 novoValor = "";
                 switch (opcao) {
@@ -446,10 +448,10 @@ public class ConsultaController {
                                             .println("\n > A data da consulta não pode ser nula. Tente novamente. <\n");
                                     continue;
                                 }
-    
+
                                 // Converte a string para um objeto LocalDate
                                 novaDataConsulta = LocalDate.parse(novoValor);
-    
+
                                 // Verifica se a data da consulta é válida (posterior ou igual à data atual)
                                 LocalDate dataAtual = LocalDate.now();
                                 if (novaDataConsulta.isBefore(dataAtual)) {
@@ -475,14 +477,15 @@ public class ConsultaController {
                             try {
                                 DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
                                 novoHorarioConsulta = LocalTime.parse(novoValor, timeFormatter);
-    
+
                                 // Verifica se o horário está no intervalo de funcionamento
                                 LocalTime horarioInicio = LocalTime.of(8, 0); // 08:00
                                 LocalTime horarioFim = LocalTime.of(18, 0); // 18:00
                                 if (novoHorarioConsulta.compareTo(horarioInicio) >= 0
                                         && novoHorarioConsulta.compareTo(horarioFim) <= 0) {
                                     // Verifica se já existe uma consulta agendada para o horário especificado
-                                    if (consultaDAO.existeConsultaParaDataHora(consultaDAO.getDataConsultaPeloId(idConsulta), novoHorarioConsulta)) {
+                                    if (consultaDAO.existeConsultaParaDataHora(
+                                            consultaDAO.getDataConsultaPeloId(idConsulta), novoHorarioConsulta)) {
                                         App.limparTela();
                                         System.out.println(
                                                 "\n > Já existe uma consulta agendada para o dia " + novaDataConsulta
@@ -509,18 +512,18 @@ public class ConsultaController {
                             System.out.println("+----------------------------------------------+");
                             System.out.println("|   A T U A L I Z A R  I N F O R M A Ç Õ E S   |");
                             System.out.println("+----------------------------------------------+");
-                            System.out.print("-> Novo Status da Consulta: ");
+                            System.out.print("-> Novo Status da Consulta ('Agendado' ou 'Cancelado'): ");
                             novoValor = scanner.nextLine().toLowerCase();
-                            if (!novoValor.equals("agendado") && !novoValor.equals("cancelado")) {
+                            if (!novoValor.equals("Agendado") && !novoValor.equals("Cancelado")) {
                                 App.limparTela();
                                 System.out.println(
-                                        "\n > Status da consulta inválido, insira 'agendado' ou 'cancelado'! <\n");
+                                        "\n > Status da consulta inválido, insira 'Agendado' ou 'Cancelado'! <\n");
                                 continue;
                             }
                             break;
                         } while (true);
                         break;
-    
+
                     case 5: // Status do Pagamento
                         do {
                             System.out.println("+----------------------------------------------+");
@@ -541,7 +544,7 @@ public class ConsultaController {
                         System.out.println("\n > Opção inválida, tente novamente! <\n");
                         continue; // Reinicie o loop para solicitar uma nova entrada
                 }
-    
+
                 // Chamar o método para atualizar o atributo da consulta
                 if (consultaDAO.atualizarAtributosConsulta(idConsulta, opcao, novoValor)) {
                     App.limparTela();
@@ -552,11 +555,11 @@ public class ConsultaController {
                     System.out.println("\n > Falha ao atualizar os dados! <\n");
                     return;
                 }
-    
+
             } while (true);
         }
     }
-    
+
     static Date stringParaData(String dataString) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         try {

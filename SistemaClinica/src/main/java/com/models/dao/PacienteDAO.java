@@ -79,9 +79,6 @@ public class PacienteDAO {
             stmt.setString(16, paciente.getUf());
 
             int rowsAffected = stmt.executeUpdate();
-
-            // Verifica se alguma linha foi afetada (ou seja, se a inserção foi
-            // bem-sucedida)
             return rowsAffected > 0;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -239,4 +236,23 @@ public class PacienteDAO {
             return linhasAfetadas > 0;
         }
     }
+
+    // Método usado para realizar os testes
+    public boolean deletarPaciente(Paciente paciente) {
+        String sql = "DELETE FROM Paciente WHERE cpf = ?";
+
+        try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
+            stmt.setString(1, paciente.getCpf());
+
+            int rowsAffected = stmt.executeUpdate();
+
+            // Verifica se alguma linha foi afetada (ou seja, se a exclusão foi
+            // bem-sucedida)
+            return rowsAffected > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false; // Retorna false em caso de exceção
+        }
+    }
+
 }

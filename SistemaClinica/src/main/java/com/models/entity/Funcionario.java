@@ -12,11 +12,12 @@ public class Funcionario extends Usuario {
     public Funcionario(String cpf, String nome, Date dataNascimento, String sexo, String cargo, double salario,
             Date dataContratacao, Boolean status, String telefone, String email, String senha, String cep, String rua,
             int numeroDaCasa, String bairro, String cidade, String uf) {
-                super(cpf, nome, dataNascimento, sexo, telefone, email, senha, cep, rua, numeroDaCasa, bairro, cidade, uf);
-                this.cargo = cargo;
-                this.salario = salario;
-                this.dataContratacao = dataContratacao;
-                this.status = status;    }
+        super(cpf, nome, dataNascimento, sexo, telefone, email, senha, cep, rua, numeroDaCasa, bairro, cidade, uf);
+        this.cargo = cargo;
+        this.salario = salario;
+        this.dataContratacao = dataContratacao;
+        this.status = status;
+    }
 
     public String getCargo() {
         return cargo;

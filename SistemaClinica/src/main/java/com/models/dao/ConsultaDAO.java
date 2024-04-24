@@ -36,7 +36,7 @@ public class ConsultaDAO {
             stmt.setString(2, funcionario.getNome());
             stmt.setString(3, paciente.getCpf());
             stmt.setString(4, paciente.getNome());
-            stmt.setInt(5, servico.getCodigo());
+            stmt.setInt(5, servicoDAO.retornarCodigoServicoPeloNome(servico.getNome()));
             stmt.setString(6, servico.getNome());
             stmt.setDouble(7, servico.getValor());
             stmt.setDate(8, new java.sql.Date(consulta.getData().getTime()));
@@ -44,8 +44,8 @@ public class ConsultaDAO {
             stmt.setString(10, consulta.getStatusConsulta());
             stmt.setBoolean(11, consulta.isPagamento());
 
-            int linhasAfetadas = stmt.executeUpdate();
-            return linhasAfetadas > 0;
+            int rowsAffected = stmt.executeUpdate();
+            return rowsAffected > 0;
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
@@ -235,5 +235,40 @@ public class ConsultaDAO {
             stmt.setInt(1, idConsulta);
             stmt.executeUpdate();
         }
+    }
+
+    // Método usado para realizar os testes
+    public boolean deletarConsultaPorCPFPaciente(Consulta consulta) {
+        String sql = "DELETE FROM Consulta WHERE paciente_cpf = ?";
+
+        try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
+            // Define o CPF do paciente como parâmetro
+            stmt.setString(1, consulta.getPaciente().getCpf());
+
+            // Executa o comando SQL
+            int linhasAfetadas = stmt.executeUpdate();
+
+            // Retorna true se houve alguma linha afetada (consulta deletada), caso
+            // contrário, retorna false
+            return linhasAfetadas > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false; // Retorna false em caso de exceção
+        }
+    }
+
+    public int obterUltimoIdInserido() throws SQLException {
+        String sql = "SELECT MAX(consulta_id) AS last_id FROM Consulta";
+
+        try (PreparedStatement stmt = conexao.prepareStatement(sql);
+                ResultSet rs = stmt.executeQuery()) {
+
+            if (rs.next()) {
+                return rs.getInt("last_id");
+            }
+        }
+
+        // Se não houver nenhum ID inserido, retorna -1 ou lança uma exceção
+        throw new SQLException("Nenhum ID de consulta encontrado.");
     }
 }

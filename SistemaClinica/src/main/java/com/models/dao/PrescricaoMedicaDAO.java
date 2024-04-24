@@ -29,15 +29,9 @@ public class PrescricaoMedicaDAO {
             stmt.setString(4, prescricao.getDiagnostico());
             stmt.setString(5, prescricao.getDescricao());
 
-            // Executa a inserção
             int linhasAfetadas = stmt.executeUpdate();
-
-            // Retorna true se pelo menos uma linha foi afetada (ou seja, a inserção foi
-            // bem-sucedida)
             return linhasAfetadas > 0;
         } catch (SQLException e) {
-            // Imprime informações sobre qualquer exceção que ocorra durante a execução da
-            // inserção
             e.printStackTrace();
             return false;
         }
@@ -175,6 +169,25 @@ public class PrescricaoMedicaDAO {
                         "+--------------+------------------+---------------+------------------+----------------------+-------------------------------+-------------------------+\n");
 
             }
+        }
+    }
+
+    public boolean deletarPrescricaoMedicaPorCPF(String cpfPaciente) throws SQLException {
+        String sql = "DELETE FROM PrescricaoMedica WHERE paciente_cpf = ?";
+        try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
+            stmt.setString(1, cpfPaciente);
+            int linhasAfetadas = stmt.executeUpdate();
+            return linhasAfetadas > 0;
+        }
+    }
+
+    public void deletarUltimoProntuario() {
+        String sql = "DELETE FROM ProntuarioMedico WHERE id_prontuario = (SELECT MAX(id_prontuario) FROM ProntuarioMedico)";
+
+        try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 

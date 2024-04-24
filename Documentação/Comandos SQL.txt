@@ -66,7 +66,7 @@ CREATE TABLE Consulta (
   valorServico NUMERIC(10, 2) NOT NULL,
   dataConsulta DATE NOT NULL,
   horario TIME NOT NULL,
-  statusConsulta VARCHAR(15) NOT NULL,
+  statusConsulta VARCHAR(9) NOT NULL,
   statusPagamento BOOLEAN NOT NULL,
   FOREIGN KEY (funcionario_cpf) REFERENCES Funcionario,
   FOREIGN KEY (paciente_cpf) REFERENCES Paciente,

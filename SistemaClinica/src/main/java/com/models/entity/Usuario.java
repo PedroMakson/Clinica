@@ -17,7 +17,7 @@ public class Usuario {
     private String bairro;
     private String cidade;
     private String uf;
-    
+
     public Usuario(String cpf, String nome, Date dataNascimento, String sexo, String telefone, String email,
             String senha, String cep, String rua, int numeroDaCasa, String bairro, String cidade, String uf) {
         this.cpf = cpf;
@@ -138,5 +138,5 @@ public class Usuario {
     public void setUf(String uf) {
         this.uf = uf;
     }
-   
+
 }

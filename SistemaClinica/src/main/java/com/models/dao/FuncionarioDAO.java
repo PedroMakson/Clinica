@@ -126,9 +126,6 @@ public class FuncionarioDAO {
             stmt.setString(17, funcionario.getUf());
 
             int rowsAffected = stmt.executeUpdate();
-
-            // Verifica se alguma linha foi afetada (ou seja, se a inserção foi
-            // bem-sucedida)
             return rowsAffected > 0;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -297,4 +294,21 @@ public class FuncionarioDAO {
         }
     }
 
+    // Método usado para realizar os testes
+    public boolean deletarFuncionario(Funcionario funcionario) {
+        String sql = "DELETE FROM Funcionario WHERE cpf = ?";
+
+        try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
+            stmt.setString(1, funcionario.getCpf());
+
+            int rowsAffected = stmt.executeUpdate();
+
+            // Verifica se alguma linha foi afetada (ou seja, se a exclusão foi
+            // bem-sucedida)
+            return rowsAffected > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false; // Retorna false em caso de exceção
+        }
+    }
 }
